@@ -1,0 +1,6 @@
+{
+    "autoimport.doubleQuotes": true,
+    "blade.format.enable": true,
+    "cSpell.allowCompoundWords": true,
+    "html.format.endWithNewline": true
+}
