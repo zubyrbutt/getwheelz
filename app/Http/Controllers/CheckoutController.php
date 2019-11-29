@@ -43,7 +43,25 @@ class CheckoutController extends Controller
             'source' => $request->stripeToken,
             'receipt_email' => 'jenny.rosen@example.com',
         ]);
-dd($charge);
+
+        $userId = Auth::user();
+        $order = $userId->orders()->create([
+
+            'total' => \Cart::getTotal(),
+            'delivered' => 0
+
+        ]);
+
+        $cartItems = \Cart::getContent();
+
+        foreach($cartItems as $cartItem){
+            $order->shops()->attach($cartItem->id,[
+
+                'qty' => $cartItem->quantity,
+                'total' =>$cartItem->quantity*$cartItem->price
+                 
+            ]);
+        }
     }
 
 }

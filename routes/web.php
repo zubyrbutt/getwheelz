@@ -44,7 +44,11 @@ Route::get('admin/cars/{car}', 'AdminsController@carshow')->name('admin.cars')->
 Route::get('admin/bikes/{bike}', 'AdminsController@bikeshow')->name('admin.bike')->middleware(['auth', 'auth.admin']);
 Route::get('admin/blog', 'AdminsController@blog')->name('admin.blog')->middleware(['auth', 'auth.admin']);
 Route::resource('admin/shop', 'ShopController')->middleware(['auth', 'auth.admin']);
-    
+Route::get('admin/orders/{types?}', 'orderController@orders')->name('admin.orders');
+Route::post('toggledeliver/{orderId}', 'orderController@toggleDeliver')->name('toggle.deliver');
+
+
+
 
 Route::get('finance', 'CarFinanceController@finance')->name('finance');
 
