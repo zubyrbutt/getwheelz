@@ -43,7 +43,7 @@ class CheckoutController extends Controller
             'source' => $request->stripeToken,
             'receipt_email' => 'jenny.rosen@example.com',
         ]);
-dd($charge);
+
     }
 
 }

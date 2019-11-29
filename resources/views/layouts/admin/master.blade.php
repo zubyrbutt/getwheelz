@@ -226,12 +226,13 @@
                 <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
                     <ul class="ml-menu">
                         <li class="active"><a href="{{ route('admin.blog') }}">Post New Blog</a></a> </li>
-                        <li><a href="index2.html">Dashboard 2</a></li>
+                        
                     </ul>
                 </li>
                 <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-chart"></i><span>Shop</span> </a>
                     <ul class="ml-menu">
                         <li><a href="{{ route('shop.index') }}">Products</a></li>
+
                         <li><a href="{{ route('shop.create') }}">Add New Product</a></li>
                         <li><a href="mail-single.html">Single Mail</a></li>
                     </ul>
