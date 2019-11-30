@@ -23,7 +23,11 @@
                             </div>
                             <div class="media-text">
                                 <span class="title">Total Sales</span>
+<<<<<<< HEAD
                                 <span class="value">$34000</span>
+=======
+                                <span class="value">1,305</span>
+>>>>>>> 9e9fa048b7a198e1c7340746bbe023771a299fc6
                             </div>
                         </div>
                         <p class="media-footer text-success"><i class="zmdi zmdi-trending-up"></i> 13%
@@ -90,7 +94,11 @@
                 
              
         <div class="row clearfix">
+<<<<<<< HEAD
             <div class="col-sm-12 col-md-12">
+=======
+            <div class="col-sm-12 col-md-8">
+>>>>>>> 9e9fa048b7a198e1c7340746bbe023771a299fc6
                 <div class="card" >
                     <div class="header">
                         <h2>Latest orders</h2>
@@ -105,6 +113,7 @@
                         </ul>
                     </div>
                     <div class="body table-responsive">
+<<<<<<< HEAD
                             @foreach ($orders as $order)
 
                         <table class="table table-striped table-borderless m-b-5">
@@ -149,6 +158,35 @@
                             </tbody>
                         </table>
                         @endforeach
+=======
+                        <table class="table table-striped table-borderless m-b-5">
+                            <thead>
+                                <tr>
+                                    <th style="width:40%;">Images</th>
+                                    <th style="width:40%;">Product</th>
+                                    <th class="number">Price</th>
+                                    <th style="width:20%;">Date</th>
+                                    <th style="width:20%;">State</th>
+                                    <th style="width:5%;" class="actions"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="no-border-x">
+                                @foreach ($products as $product)
+                                <tr>
+                                        <td><img width="40px" height="40px" src="{{ asset('storage/'.$product->image) }}" alt="" srcset=""></td>
+
+                                        <td>{{ $product->name }}</td>
+                                        <td class="number">Rs.{{ $product->price }}</td>
+                                        <td>{{ $product->created_at->diffForHumans() }}</td>
+                                        <td class="text-success">Completed</td>
+                                        <td class="actions"><a href="#" class="icon"><i class="zmdi zmdi-plus-circle-o"></i></a></td>
+                                    </tr>
+                                @endforeach
+                                
+                                
+                            </tbody>
+                        </table>
+>>>>>>> 9e9fa048b7a198e1c7340746bbe023771a299fc6
                     </div>
                     
                 </div>

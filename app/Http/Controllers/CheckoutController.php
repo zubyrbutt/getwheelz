@@ -44,6 +44,7 @@ class CheckoutController extends Controller
             'receipt_email' => 'jenny.rosen@example.com',
         ]);
 
+<<<<<<< HEAD
         $userId = Auth::user();
         $order = $userId->orders()->create([
 
@@ -62,6 +63,8 @@ class CheckoutController extends Controller
                  
             ]);
         }
+=======
+>>>>>>> 9e9fa048b7a198e1c7340746bbe023771a299fc6
     }
 
 }
