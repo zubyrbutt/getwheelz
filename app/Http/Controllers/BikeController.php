@@ -15,7 +15,10 @@ class BikeController extends Controller
      */
     public function index()
     {
-        
+        $bikes = Bike::all()->first();
+        return view('bikes.index')->with('bikes',$bikes);
+
+
     }
 
     /**
@@ -63,7 +66,7 @@ class BikeController extends Controller
      */
     public function show(Bike $bike)
     {
-        //
+        return view('bikes.show');
     }
 
     /**

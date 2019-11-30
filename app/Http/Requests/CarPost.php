@@ -33,10 +33,11 @@ class CarPost extends FormRequest
             'engine'  => 'required',
             'transmission' => 'required',
             'assembly' => 'required',
-            // 'image' => 'required',
+            'image' => 'required',
             'model' => 'required',
             'description' => 'required',
             'price' => 'required',
+            
 
         ];
     }

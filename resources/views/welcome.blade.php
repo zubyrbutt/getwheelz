@@ -58,26 +58,47 @@
 						<div class="section category-ad text-center">
 							<ul class="category-list">	
 								<li class="category-item">
-									<a href="categories.html">
+									<a href="{{ route('cars.index') }}">
 										<div class="category-icon"><img src="{{ asset('theme/images/icon/1.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Cars & Vehicles</span>
-										<span class="category-quantity">(1298)</span>
+										<span class="category-quantity">
+											@if($cars->count()>0)
+											({{ ($cars->count()) }})
+											@else
+											(0)
+											@endif
+										</span>
 									</a>
 								</li><!-- category-item -->
 								
 								<li class="category-item">
 									<a href="categories.html">
 										<div class="category-icon"><img src="{{ asset('theme/images/icon/2.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Electrics & Gedgets</span>
-										<span class="category-quantity">(76212)</span>
+										<span class="category-title">Bikes</span>
+										<span class="category-quantity">
+											
+										
+									@if($bikes->count()>0)
+									({{ $bikes->count() }})
+									@else
+									(0)
+									@endif
+									</span>
 									</a>
 								</li><!-- category-item -->
 								
 								<li class="category-item">
 									<a href="categories.html">
 										<div class="category-icon"><img src="{{ asset('theme/images/icon/3.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Real Estate</span>
-										<span class="category-quantity">(212)</span>
+										<span class="category-title">Vehicles Parts</span>
+										<span class="category-quantity">
+
+											@if($accessories->count() >0)
+											({{ $accessories->count() }})
+											@else
+											(0)
+											@endif
+										</span>
 									</a>
 								</li><!-- category-item -->
 								
@@ -89,48 +110,9 @@
 									</a>
 								</li><!-- category-item -->
 								
-								<li class="category-item">
-									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/5.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Fshion & Beauty</span>
-										<span class="category-quantity">(1298)</span>
-									</a>
-								</li><!-- category-item -->
 								
 								<li class="category-item">
-									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/6.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Pets & Animals</span>
-										<span class="category-quantity">(76212)</span>
-									</a>
-								</li><!-- category-item -->
-								
-								<li class="category-item">
-									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/9.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Home Appliances</span>
-										<span class="category-quantity">(1298)</span>
-									</a>
-								</li><!-- category-item -->
-								
-								<li class="category-item">
-									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/10.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Matrimony Services</span>
-										<span class="category-quantity">(76212)</span>
-									</a>
-								</li><!-- category-item -->
-								
-								<li class="category-item">
-									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/11.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Music & Arts</span>
-										<span class="category-quantity">(212)</span>
-									</a>
-								</li><!-- category-item -->
-								
-								<li class="category-item">
-									<a href="categories.html">
+									<a href="{{ route('cars.index') }}">
 										<div class="category-icon"><img src="{{ asset('theme/images/icon/12.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Miscellaneous </span>
 										<span class="category-quantity">(1298)</span>
@@ -315,470 +297,176 @@
 
 						<!-- trending-ads -->
 						<div class="section trending-ads">
-							<div class="section-title tab-manu">
-								<h4>Trending Ads</h4>
-								 <!-- Nav tabs -->      
-								<ul class="nav nav-tabs" role="tablist">
-									<li role="presentation"><a class="active" href="#recent-ads"  data-toggle="tab">Recent Ads</a></li>
-									<li role="presentation"><a href="#popular" data-toggle="tab">Popular Ads</a></li>
-									<li role="presentation"><a href="#hot-ads"  data-toggle="tab">Hot Ads</a></li>
-								</ul>
-							</div>
-
-				  			<!-- Tab panes -->
-							<div class="tab-content">
-								<!-- tab-pane -->
-								<div role="tabpanel" class="tab-pane fade in active show" id="recent-ads">
-									<!-- ad-item -->
-									@foreach ($cars as $car)
-										
-									
-									<div class="ad-item row">
-										<!-- item-image -->
-										<div class="item-image-box col-lg-4">
-											<div class="item-image">
-												<a href="details.html"><img src="{{ asset('theme/images/trending/1.jpg') }}" alt="Image" class="img-fluid"></a>
-												<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
-											</div><!-- item-image -->
-										</div>
-										
-											<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">Rs.{{ $car->price}}</h3>
-												<h4 class="item-title"><a href="{{ url('cars/'.$car->id) }}">{{ ucwords($car->car_info) }}</a></h4>
-												<div class="item-cat">
-													<span><a href="#">{{ ucwords($car->city) }}</a></span> / Registraion City
-													<span><a href="#">/ {{ ucwords($car->registration_city) }} </a></span>
-												</div>	
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">{{ date('D, d M Y g:i A', strtotime($car->created_at))}} </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div>
-										
-										<!-- item-info -->
-									</div><!-- ad-item -->
-									@endforeach
-									<!-- ad-item -->
-									{{-- <div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="{{ asset('theme/images/trending/2.jpg') }}" alt="Image" class="img-fluid"></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$250.00 <span>(Negotiable)</span></h3>
-												<h4 class="item-title"><a href="#">Bark Furniture, Handmade Bespoke Furniture</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Home Appliances</a></span> /
-													<span><a href="#">Sofa</a></span>
-												</div>										
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->
-
-									<!-- ad-item -->
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="{{ asset('theme/images/trending/4.jpg') }}" alt="Image" class="img-fluid"></a>
-												<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$800.00</h3>
-												<h4 class="item-title"><a href="#">Rick Morton- Magicius Chase</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Books & Magazines</a></span> /
-													<span><a href="#">Story book</a></span>
-												</div>										
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->
-
-									<!-- ad-item -->
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="{{ asset('theme/images/trending/3.jpg') }}" alt="Image" class="img-fluid"></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
-												<h4 class="item-title"><a href="#">Samsung Galaxy S6 Edge</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Electronics & Gedgets</a></span> /
-													<span><a href="#">Mobile Phone</a></span>
-												</div>	
-											</div><!-- ad-info -->											
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->		
-									
-								</div><!-- tab-pane --> --}}
-								
-								<!-- tab-pane -->
-								<div role="tabpanel" class="tab-pane fade" id="popular">
-
-									<div class="ad-item row">
-										<!-- item-image -->
-										<div class="item-image-box col-lg-4">
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/1.jpg" alt="Image" class="img-fluid"></a>
-												<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
-											</div><!-- item-image -->
-										</div>
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$50.00</h3>
-												<h4 class="item-title"><a href="#">Apple TV - Everything you need to know!</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Electronics & Gedgets</a></span> /
-													<span><a href="#">Tv & Video</a></span>
-												</div>	
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->
-									
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/3.jpg" alt="Image" class="img-fluid"></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
-												<h4 class="item-title"><a href="#">Samsung Galaxy S6 Edge</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Electronics & Gedgets</a></span> /
-													<span><a href="#">Mobile Phone</a></span>
-												</div>	
-											</div><!-- ad-info -->											
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->	
-									
-									<!-- ad-item -->
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/2.jpg" alt="Image" class="img-fluid"></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$250.00 <span>(Negotiable)</span></h3>
-												<h4 class="item-title"><a href="#">Bark Furniture, Handmade Bespoke Furniture</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Home Appliances</a></span> /
-													<span><a href="#">Sofa</a></span>
-												</div>										
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->
-
-									<!-- ad-item -->
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/4.jpg" alt="Image" class="img-fluid"></a>
-												<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$800.00</h3>
-												<h4 class="item-title"><a href="#">Rick Morton- Magicius Chase</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Books & Magazines</a></span> /
-													<span><a href="#">Story book</a></span>
-												</div>										
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->									
-								</div><!-- tab-pane -->
-
-								<!-- tab-pane -->
-								<div role="tabpanel" class="tab-pane fade" id="hot-ads">
-									<!-- ad-item -->
-									<div class="ad-item row">
-										<!-- item-image -->
-										<div class="item-image-box col-lg-4">
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/1.jpg" alt="Image" class="img-fluid"></a>
-												<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
-											</div><!-- item-image -->
-										</div>
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$50.00</h3>
-												<h4 class="item-title"><a href="#">Apple TV - Everything you need to know!</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Electronics & Gedgets</a></span> /
-													<span><a href="#">Tv & Video</a></span>
-												</div>	
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->
-									<!-- ad-item -->
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/4.jpg" alt="Image" class="img-fluid"></a>
-												<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$800.00</h3>
-												<h4 class="item-title"><a href="#">Rick Morton- Magicius Chase</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Books & Magazines</a></span> /
-													<span><a href="#">Story book</a></span>
-												</div>										
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->
-
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/3.jpg" alt="Image" class="img-fluid"></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
+								<div class="section-title tab-manu">
+									<h4>Trending Ads</h4>
+									 <!-- Nav tabs -->      
+									<ul class="nav nav-tabs" role="tablist">
+										<li role="presentation"><a class="active" href="#recent-ads"  data-toggle="tab">Recent Ads</a></li>
+										<li role="presentation"><a href="#popular" data-toggle="tab">Popular Ads</a></li>
+										<li role="presentation"><a href="#hot-ads"  data-toggle="tab">Hot Ads</a></li>
+									</ul>
+								</div>
+	
+								  <!-- Tab panes -->
+								<div class="tab-content">
+									<!-- tab-pane -->
+									<div role="tabpanel" class="tab-pane fade in active show" id="recent-ads">
 										<!-- ad-item -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
-												<h4 class="item-title"><a href="#">Samsung Galaxy S6 Edge</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Electronics & Gedgets</a></span> /
-													<span><a href="#">Mobile Phone</a></span>
-												</div>	
-											</div><!-- ad-info -->											
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->	
-									
-									<!-- ad-item -->
-									<div class="ad-item row">
-										<div class="item-image-box col-lg-4">
-											<!-- item-image -->
-											<div class="item-image">
-												<a href="details.html"><img src="images/trending/2.jpg" alt="Image" class="img-fluid"></a>
-											</div><!-- item-image -->
-										</div><!-- item-image-box -->
-										
-										<!-- rending-text -->
-										<div class="item-info col-lg-8">
-											<!-- ad-info -->
-											<div class="ad-info">
-												<h3 class="item-price">$250.00 <span>(Negotiable)</span></h3>
-												<h4 class="item-title"><a href="#">Bark Furniture, Handmade Bespoke Furniture</a></h4>
-												<div class="item-cat">
-													<span><a href="#">Home Appliances</a></span> /
-													<span><a href="#">Sofa</a></span>
-												</div>										
-											</div><!-- ad-info -->
-											
-											<!-- ad-meta -->
-											<div class="ad-meta">
-												<div class="meta-content">
-													<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-													<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
-												</div>									
-												<!-- item-info-right -->
-												<div class="user-option pull-right">
-													<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-													<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-												</div><!-- item-info-right -->
-											</div><!-- ad-meta -->
-										</div><!-- item-info -->
-									</div><!-- ad-item -->									
-								</div><!-- tab-pane -->
-							</div>
-						</div><!-- trending-ads -->		
+										<!-- ad-item -->
+	
+										<!-- ad-item -->@foreach ($cars as $car)
+										<div class="ad-item row">
+												
+											<div class="item-image-box col-lg-4">
+												<!-- item-image -->
 
+												<div class="item-image">
+													<a href="{{ route('cars.show', $car->id) }}"><img src="{{ asset('storage/'.$car->image) }}" alt="Image" class="img-fluid"></a>
+												</div><!-- item-image -->
+											</div><!-- item-image-box -->
+											
+											<!-- rending-text -->
+											<div class="item-info col-lg-8">
+												<!-- ad-info -->
+												{{-- starting foreach --}}
+												
+													
+												
+												<div class="ad-info">
+													<h3 class="item-price">${{ $car->price }} </h3>
+													<h4 class="item-title"><a href="{{ route('cars.show',$car->id) }}">{{ ucwords($car->car_info) }}</a></h4>
+													<div class="item-cat">
+														<span>Posted By: {{ ucwords($car->user->name) }}</span> 
+														
+													</div>										
+												</div><!-- ad-info -->
+												
+												<!-- ad-meta -->
+												<div class="ad-meta">
+													<div class="meta-content">
+														<span class="dated"><a href="#">{{ $car->created_at->diffForHumans() }} </a></span>
+														<a href="#" class="tag"><i class="fa fa-info"></i> {{ $car->engine }}</a>
+													</div>									
+													<!-- item-info-right -->
+													<div class="user-option pull-right">
+														<a href="#" data-toggle="tooltip" data-placement="top" title="{{ $car->city }}, Pakistan"><i class="fa fa-map-marker"></i> </a>
+														<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
+													</div><!-- item-info-right -->
+												</div><!-- ad-meta -->
+											</div>
+											
+											{{-- end foreach --}}
+
+											<!-- item-info -->
+										</div>		
+										@endforeach
+									</div><!-- tab-pane -->
+									
+									<!-- tab-pane -->
+									<div role="tabpanel" class="tab-pane fade" id="popular">
+											@foreach ($bikes as $bike)
+										<div class="ad-item row">
+											<!-- item-image -->
+											<div class="item-image-box col-lg-4">
+												<div class="item-image">
+													<a href="{{ route('bikes.show', $bike->id) }}"><img src="{{ asset('storage/'.$bike->image) }}" alt="Image" class="img-fluid"></a>
+													<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
+												</div><!-- item-image -->
+											</div>
+											
+											<!-- rending-text -->
+											<div class="item-info col-lg-8">
+												<!-- ad-info -->
+												
+													
+												
+												<div class="ad-info">
+													<h3 class="item-price">${{ $bike->price }}
+															@if($bike->negotiable == 0 )
+															<span>(Negotiable)</span>
+															@else
+															<span>(Final Price)</span>
+														@endif
+													</h3>
+													<h4 class="item-title"><a href="{{ route('bikes.show', $bike->id) }}">{{ $bike->bike_info }}</a></h4>
+													<div class="item-cat">
+														<span><a href="#">Posted By: {{ ucwords($bike->user->name) }}</a></span>
+													</div>	
+												</div><!-- ad-info -->
+												
+												<!-- ad-meta -->
+												<div class="ad-meta">
+													<div class="meta-content">
+														<span class="dated"><a href="#">{{ $bike->created_at->diffForHumans() }} </a></span>
+														<a href="#" class="tag"><i class="fa fa-info"></i> ({{ $bike->engine }})</a>
+													</div>									
+													<!-- item-info-right -->
+													<div class="user-option pull-right">
+														<a href="#" data-toggle="tooltip" data-placement="top" title="{{ $bike->city }}, Pakistan"><i class="fa fa-map-marker"></i> </a>
+														<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
+													</div><!-- item-info-right -->
+												</div>
+											</div><!-- item-info -->
+										</div><!-- ad-item -->
+										@endforeach<!-- ad-meta -->
+										
+																		
+									</div><!-- tab-pane -->
+	
+									<!-- tab-pane -->
+									<div role="tabpanel" class="tab-pane fade" id="hot-ads">
+										<!-- ad-item -->
+										@foreach($accessories as $accessory)
+
+										<div class="ad-item row">
+											<!-- item-image -->
+											<div class="item-image-box col-lg-4">
+												<div class="item-image">
+													<a href="details.html"><img src="images/trending/1.jpg" alt="Image" class="img-fluid"></a>
+													<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
+												</div><!-- item-image -->
+											</div>
+											
+											<!-- rending-text -->
+											<div class="item-info col-lg-8">
+												<!-- ad-info -->
+												
+													
+												<div class="ad-info">
+													<h3 class="item-price">${{ $accessory->price }}
+														@if($accessory->negotiable == 0 )
+														<span>(Negotiable)</span>
+														@else
+														<span>(Final Price)</span>
+													@endif
+													</h3>
+													<h4 class="item-title"><a href="#">Apple TV - Everything you need to know!</a></h4>
+													<div class="item-cat">
+														<span><a href="#">Electronics & Gedgets</a></span> /
+														<span><a href="#">Tv & Video</a></span>
+													</div>	
+												</div><!-- ad-info -->
+												
+												<!-- ad-meta -->
+												<div class="ad-meta">
+													<div class="meta-content">
+														<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+														<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+													</div>									
+													<!-- item-info-right -->
+													<div class="user-option pull-right">
+														<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
+														<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
+													</div><!-- item-info-right -->
+												</div>
+												<!-- ad-meta -->
+											</div><!-- item-info -->
+										</div><!-- ad-item -->
+										<!-- ad-item -->
+										@endforeach							
+									</div><!-- tab-pane -->
+								</div>
+							</div>
 						<!-- cta -->
 						<div class="section cta text-center">
 							<div class="row">
@@ -787,7 +475,7 @@
 									<div class="single-cta">
 										<!-- cta-icon -->
 										<div class="cta-icon icon-secure">
-											<img src="images/icon/13.png" alt="Icon" class="img-fluid">
+											<img src="{{ asset('theme/images/icon/13.png') }}" alt="Icon" class="img-fluid">
 										</div><!-- cta-icon -->
 
 										<h4>Secure Trading</h4>
@@ -800,7 +488,7 @@
 									<div class="single-cta">
 										<!-- cta-icon -->
 										<div class="cta-icon icon-support">
-											<img src="images/icon/14.png" alt="Icon" class="img-fluid">
+											<img src="{{ asset('theme/images/icon/14.png') }}" alt="Icon" class="img-fluid">
 										</div><!-- cta-icon -->
 
 										<h4>24/7 Support</h4>
@@ -813,7 +501,7 @@
 									<div class="single-cta">
 										<!-- cta-icon -->
 										<div class="cta-icon icon-trading">
-											<img src="images/icon/15.png" alt="Icon" class="img-fluid">
+											<img src="{{ asset('theme/images/icon/15.png') }}" alt="Icon" class="img-fluid">
 										</div><!-- cta-icon -->
 
 										<h4>Easy Trading</h4>

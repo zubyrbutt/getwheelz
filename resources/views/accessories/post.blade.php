@@ -164,9 +164,9 @@
                                         <label class="col-sm-2 label-title">Price<span class="required">*</span><small>Rs.</small></label>
                                         <div class="col-sm-9">
                                             <input type="number" name="price" class="form-control" placeholder="ex, 24000" id="text1">                                                 
-                                                    <input type="radio" name="negotiable" value="Negotiable" id="Negotiable"> 
+                                                    <input type="radio" name="negotiable" value="0" id="Negotiable"> 
                                                     <label for="Negotiable">Negotiable</label>
-                                                    <input type="radio" name="negotiable" value="Final Price" id="Final_Price"> 
+                                                    <input type="radio" name="negotiable" value="1" id="Final_Price"> 
                                                     <label for="Final_Price">Final Price</label>
                                                
                                             </div>

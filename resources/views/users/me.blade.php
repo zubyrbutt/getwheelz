@@ -24,7 +24,7 @@
 
 					<div class="favorites-user">
 						<div class="my-ads">
-							<a href="my-ads.html">{{ Auth::user()->car->count() }}<small>My ADS</small></a>
+							<a href="my-ads.html"><small>My ADS</small></a>
 						</div>
 						<div class="favorites">
 							<a href="#">18<small>Favorites</small></a>

@@ -29,7 +29,8 @@ class CreateCarsTable extends Migration
             $table->integer('model');
             $table->text('description');
             $table->integer('price');
-            $table->string('features')->nullable();
+            $table->string('features')->default(0);
+            $table->integer('ad_id')->nullable();
             $table->timestamps();
         });
     }

@@ -58,7 +58,7 @@
 						<div class="section category-ad text-center">
 							<ul class="category-list">	
 								<li class="category-item">
-									<a href="categories.html">
+									<a href="{{ route('cars.index') }}">
 										<div class="category-icon"><img src="{{ asset('theme/images/icon/1.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Cars & Vehicles</span>
 										<span class="category-quantity">(1298)</span>
@@ -130,7 +130,7 @@
 								</li><!-- category-item -->
 								
 								<li class="category-item">
-									<a href="categories.html">
+									<a href="#">
 										<div class="category-icon"><img src="{{ asset('theme/images/icon/12.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Miscellaneous </span>
 										<span class="category-quantity">(1298)</span>

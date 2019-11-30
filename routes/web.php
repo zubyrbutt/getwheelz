@@ -11,6 +11,7 @@
 |
 */
 
+use App\Car;
 use App\Http\Controllers\UsersController;
 
 Route::get('/', function () {

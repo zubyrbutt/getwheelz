@@ -24,7 +24,7 @@ class CreateAccessoriesTable extends Migration
             
             $table->text('description');
             $table->integer('price');
-            $table->string('negotiable');
+            $table->tinyInteger('negotiable');
             
 
             $table->string('features')->nullable();

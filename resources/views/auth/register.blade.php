@@ -72,9 +72,7 @@
 							<div class="form-group">
 								<input type="tel" name="phone" pattern='^\+?\d{0,13}' class="form-control" placeholder="Phone number">
                             </div>
-                            <div class="form-group">
-								<input type="file" name="image"  class="form-control">
-							</div>
+                            
 							<div class="form-group">
 								<input type="password" name="password" class="form-control" placeholder="Password">
 							</div>

@@ -25,7 +25,7 @@ class CreateBikesTable extends Migration
             $table->integer('model');
             $table->text('description');
             $table->integer('price');
-            $table->string('negotiable');
+            $table->tinyInteger('negotiable');
             $table->string('features')->nullable();
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class CarController extends Controller
 
     public function welcome()
     {
-        $car = Car::orderBy('id', 'desc')->get();
+        $car = Car::all();
         return view('welcome')->with('cars', $car);
     }
 
@@ -44,7 +44,9 @@ class CarController extends Controller
      */
     public function store(CarPost $request)
     {
-        //$image = $request->image->store('cars');
+    
+
+        $image = $request->image->store('cars');
         $car = Car::create([
 
             'city' => $request->city,
@@ -53,13 +55,15 @@ class CarController extends Controller
             'registration_city' => $request->registration_city,
             'mileage' => $request->mileage,
             'color' => $request->color,
+            'image' => $image,
             'engine' => $request->engine,
             'transmission' => $request->transmission,
             'assembly' => $request->assembly,
             'model' => $request->model,
             'description' => $request->description,
             'price' => $request->price,
-            //'image' => $image
+          
+            
 
         ]);
                 

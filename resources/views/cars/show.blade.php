@@ -129,7 +129,7 @@
 							<h2>Rs.{{ $car->price }}</h2>
 							<h3 class="title">{{ ucwords($car->car_info) }}</h3>
 							<p><span>Offered by: <a href="#">{{ ucwords($car->user->name)}}</a></span>
-							<span> Ad ID:<a href="#" class="time"> 251716763</a></span></p>
+							<span> Ad ID:<a href="#" class="time"> {{ uniqid() }}</a></span></p>
 							<span class="icon"><i class="fa fa-clock-o"></i><a href="#">{{ date('D, d M Y g:i A', strtotime($car->created_at))}}</a></span>
 							<span class="icon"><i class="fa fa-map-marker"></i><a href="#">{{ $car->city }}, Pakistan</a></span>
 							<span class="icon"><i class="fa fa-suitcase online"></i><a href="#">Dealer <strong>(online)</strong></a></span>
