@@ -5,7 +5,10 @@ namespace App\Providers;
 use App\Accessory;
 use App\Bike;
 use App\Car;
+use App\Certified;
 use App\Channel;
+use App\Insurance;
+use App\Shop;
 use Illuminate\Support\Facades\View;
 
 use Illuminate\Support\Facades\Schema;
@@ -35,6 +38,10 @@ class AppServiceProvider extends ServiceProvider
         View::share('bikes', Bike::all());
         View::share('cars', Car::all());
         View::share('accessories', Accessory::all());
+        View::share('products', Shop::all());
+        View::share('certified', Certified::all());
+        View::share('insurance', Insurance::all());
+
 
 
     }

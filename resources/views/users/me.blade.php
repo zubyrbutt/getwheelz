@@ -15,16 +15,22 @@
 			<div class="ad-profile section">	
 				<div class="user-profile">
 					<div class="user-images">
-						<img src="{{ asset('storage/'.Auth::user()->image) }}" width="100" height="100" alt="User Images" class="img-fluid">
+						<img src="{{ asset('theme/images/user.jpg') }}" width="100" height="100" alt="User Images" class="img-fluid">
 					</div>
 					<div class="user">
 						<h2>Hello, <a href="#">{{ ucwords(Auth::user()->name) }}</a></h2>
-						<h5>You last logged in at: 14-01-2018 6:40 AM [ USA time (GMT + 6:00hrs)]</h5>
+						<h5>Your account was created at: {{ Auth::user()->created_at->diffForHumans() }}</h5>
 					</div>
 
 					<div class="favorites-user">
 						<div class="my-ads">
-							<a href="my-ads.html"><small>My ADS</small></a>
+							<a href="my-ads.html">
+								@if(Auth::user()->cars->count()>0)
+								{{ $cars->count() }}
+					
+								<small>My ADS</small></a>
+								@endif
+							
 						</div>
 						<div class="favorites">
 							<a href="#">18<small>Favorites</small></a>
@@ -33,7 +39,7 @@
 				</div><!-- user-profile -->
 						
 				<ul class="user-menu">
-					<li class="active"><a href="my-profile.html">Profile</a></li>
+					<li class="active"><a href="my-profile.html">Cars ads list</a></li>
 					<li><a href="my-ads.html">My ads</a></li>
 					<li><a href="favourite-ads.html">Favourite ads</a></li>
 					<li><a href="archived-ads.html">Archived ads </a></li>
@@ -48,92 +54,11 @@
 						<div class="user-pro-section">
 							<!-- profile-details -->
 							<div class="profile-details section">
-                                <h2>Profile Details</h2>
-                                <form method="POST" action="{{ route('users.update', Auth::user()->id)  }}" enctype="multipart/form-data">
-                                <!-- form -->
-                                @csrf
-                                @method('PATCH')
-                               
-								<div class="form-group">
-									<label>Username</label>
-									<input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" placeholder="ex, Jhon Doe">
-								</div>
-
-								<div class="form-group">
-									<label>Email ID</label>
-									<input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}" placeholder="example@mail.com">
-								</div>
-
-								<div class="form-group">
-									<label for="name-three">Mobile</label>
-									<input type="text" name="phone" class="form-control" value="{{ Auth::user()->phone }}" placeholder="+213 1234 56789">
-								</div>
-                                <div class="form-group">
-                                        <label for="name-three">Mobile</label>
-                                        <input type="file" class="form-control" name="image">
-                                    </div>
-								<div class="form-group">
-									<label>Your City</label>
-									<select class="form-control">
-										<option value="#">Los Angeles, USA</option>
-										<option value="#">Dhaka, BD</option>
-										<option value="#">Shanghai</option>
-										<option value="#">Karachi</option>
-										<option value="#">Beijing</option>
-										<option value="#">Lagos</option>
-										<option value="#">Delhi</option>
-										<option value="#">Tianjin</option>
-										<option value="#">Rio de Janeiro</option>
-									</select>
-								</div>	
-
-								<div class="form-group">
-									<label>You are a</label>
-									<select class="form-control">
-										<option value="#">Dealer</option>
-										<option value="#">Individual Seller</option>
-									</select>
-								</div>					
-							</div><!-- profile-details -->
-
-							<!-- change-password -->
-							<div class="change-password section">
-								<h2>Change password</h2>
-								<!-- form -->
-								<div class="form-group">
-									<label>Old Password</label>
-									<input type="password" class="form-control" >
-								</div>
+								<h3>cars Ads</h3>
 								
-								<div class="form-group">
-									<label>New password</label>
-									<input type="password" name="password" class="form-control">	
-								</div>
-								
-								<div class="form-group">
-									<label>Confirm password</label>
-									<input type="password" name="password_conformation" class="form-control">
-								</div>															
-							</div><!-- change-password -->
-							
-							<!-- preferences-settings -->
-							<div class="preferences-settings section">
-								<h2>Preferences Settings</h2>
-								<!-- checkbox -->
-								<div class="checkbox">
-									<label><input type="checkbox" name="logged"> Comments are enabled on my ads </label>
-									<label><input type="checkbox" name="receive"> I want to receive newsletter.</label>
-									<label><input type="checkbox" name="want">I want to receive advice on buying and selling. </label>
-								</div><!-- checkbox -->						
-							</div><!-- preferences-settings -->
-							
-							<button type="submit">Update</button>
-							<a href="#" class="btn cancle">Cancle</a>
-                        </div><!-- user-pro-edit -->
-                    </form>
-
 					</div><!-- profile -->
-
+						</div>
+					</div>
 					<div class="col-md-4 text-center">
 						<div class="recommended-cta">					
 							<div class="cta">

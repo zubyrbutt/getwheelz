@@ -223,13 +223,11 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+                <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Home</span></a>
                     <ul class="ml-menu">
-                        <li class="active"><a href="{{ route('admin.blog') }}">Post New Blog</a></a> </li>
-<<<<<<< HEAD
-=======
+                        <li class="active"><a href="{{ route('certified.index') }}">Post New Car</a></a> </li>
                         
->>>>>>> 9e9fa048b7a198e1c7340746bbe023771a299fc6
+                        <li><a href="{{ route('admin.blog') }}">Post New Blog</a></a> </li>
                     </ul>
                 </li>
                 <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-chart"></i><span>Shop</span> </a>

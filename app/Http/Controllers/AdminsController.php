@@ -28,4 +28,5 @@ class AdminsController extends Controller
     public function blog(){
         return view('dashboard.blog');
     }
+
 }

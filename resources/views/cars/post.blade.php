@@ -39,7 +39,7 @@
                                             <li>
                                                 <a href="ad-post.html">
                                                     <span class="select">
-														<img src="{{ asset('theme/images/icon/1.png') }}" alt="Images" class="img-fluid">
+														<img width="50px" height="50px" src="{{ asset('theme/images/icon/1.png') }}" alt="Images" class="img-fluid">
 													</span> Cars & Vehicles
                                                 </a>
                                             </li>
@@ -89,14 +89,14 @@
                                     </div>
 
                                     <div class="row form-group add-title">
-                                        <label class="col-sm-3 label-title">Color<span class="required">* </span><small> km</small></label>
+                                        <label class="col-sm-3 label-title">Color<span class="required">* </span></label>
                                         <div class="col-sm-9">
                                             <input type="text" name="color" class="form-control" id="text" placeholder="ex,  white, Black, Silver .. ">
                                         </div>
                                     </div>
 
                                     <div class="row form-group add-title">
-                                            <label class="col-sm-3 label-title">Image<span class="required">* </span><small> km</small></label>
+                                            <label class="col-sm-3 label-title">Image<span class="required">* </span></label>
                                             <div class="col-sm-9">
                                                 <input type="file" name="image"  class="form-control">
                                             </div>

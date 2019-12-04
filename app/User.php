@@ -5,9 +5,11 @@ namespace App;
 use App\Bike;
 use App\Role;
 use App\Shop;
-use App\Reply;
-
 use App\Order;
+
+use App\Reply;
+use App\Import;
+use App\Rental;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone','image',
+        'name', 'email', 'password', 'phone','image','slug'
     ];
 
     /**
@@ -43,6 +45,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function import()
+    {
+        return $this->hasMany(Import::class);
+    }
+    public function insurance(){
+        return $this->hasMany(Insurance::class);
+    }
+    public function rentals(){
+        return $this->hasMany(Rental::class);
+    }
     public function orders(){
         return $this->hasMany(Order::class);
     }

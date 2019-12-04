@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use App\Bike;
 use Illuminate\Http\Request;
+use Spatie\Searchable\Search;
 use App\Http\Requests\CarPost;
 
 class CarController extends Controller
@@ -13,6 +15,26 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+
+
+
+    public function search(Request $request)
+    {
+        $searchResults = (new Search())
+            ->registerModel(Car::class, 'car_info')
+            ->registerModel(Bike::class, 'bike_info')
+            
+            ->perform($request->input('query'));
+
+        return view('search.search', compact('searchResults'));
+    }
+
+
+
+    public function __construct(){
+        $this->middleware('auth')->only('store');
+    }
 
     public function welcome()
     {
@@ -62,12 +84,13 @@ class CarController extends Controller
             'model' => $request->model,
             'description' => $request->description,
             'price' => $request->price,
-          
-            
+       
 
         ]);
                 
         $car->save();
+        \toast('Your ad post successfully ..', 'success');
+
         return redirect('/');
 
     }

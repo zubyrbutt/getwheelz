@@ -39,7 +39,7 @@
                                             <li>
                                                 <a href="ad-post.html">
                                                     <span class="select">
-														<img src="{{ asset('theme/images/icon/1.png') }}" alt="Images" class="img-fluid">
+														<img width="40px" height="40px" src="{{ asset('theme/images/icon/1.png') }}" alt="Images" class="img-fluid">
 													</span>Vehicles
                                                 </a>
                                             </li>

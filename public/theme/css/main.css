@@ -3366,6 +3366,14 @@ transform: scale(1.05) rotate(2deg);
  	padding-top: 90px;
  	padding-bottom: 80px;
 }
+.home-banner-inspection {
+ 	background-image: url(../images/bg/Inspection.png);
+ 	background-size: cover;
+ 	position: relative;
+ 	color: #fff;
+ 	padding-top: 90px;
+ 	padding-bottom: 80px;
+} 
 
 .banner-overlay {
 	position: absolute;

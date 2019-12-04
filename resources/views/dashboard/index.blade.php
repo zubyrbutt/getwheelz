@@ -137,6 +137,11 @@
                                     <td class="text-success">New/Used</td>
                                     
                                     <td >{{ $car->mileage }}</td>
+                                    <td>
+                                        @if(!$car->certifieded)
+                                        <a href="admin/cars/{{ $car->id }}/certified">Certified</a>
+                                        @endif
+                                    </td>
                                     
                                 </tr>
            

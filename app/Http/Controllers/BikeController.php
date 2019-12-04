@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
 use App\Bike;
-use App\Http\Requests\PostBike;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostBike;
 
 class BikeController extends Controller
 {
@@ -13,6 +14,23 @@ class BikeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function search(Request $request)
+    {
+        $searchResults = (new Search())
+            ->registerModel(Car::class, 'car_info')
+            ->registerModel(Bike::class, 'bike_info')
+            ->perform($request->input('query'));
+            dd($searchResults);
+
+        return view('search.search', compact('searchResults'));
+    }
+
+    public function __construct(){
+        $this->middleware('auth')->only('store');
+    }
+
     public function index()
     {
         $bikes = Bike::all()->first();
@@ -55,6 +73,8 @@ class BikeController extends Controller
         ]);
 
         $bike->save();
+        \toast('Your ad post successfully ..', 'success');
+
         return redirect('/');
     }
 

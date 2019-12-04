@@ -16,9 +16,9 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-           
             $table->string('city');
             $table->string('car_info');
+            
             $table->string('registration_city');
             $table->integer('mileage');
             $table->string('color');
@@ -29,8 +29,9 @@ class CreateCarsTable extends Migration
             $table->integer('model');
             $table->text('description');
             $table->integer('price');
-            $table->string('features')->default(0);
+            
             $table->integer('ad_id')->nullable();
+            
             $table->timestamps();
         });
     }

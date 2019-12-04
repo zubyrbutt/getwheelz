@@ -7,7 +7,7 @@
 		<div class="container">
 			<!-- banner -->
 			<div class="banner-section text-center">
-				<h1 class="title">World's Largest Classifieds Portal </h1>
+				<h1 class="title">Get Wheelz Pakistan's Classifieds Portal </h1>
 				<h3>Search from over 15,00,000 classifieds & Post unlimited classifieds free!</h3>
 				<!-- banner-form -->
 				@if (session('status'))
@@ -16,20 +16,8 @@
 				</div>
 			@endif
 				<div class="banner-form">
-					<form action="#">
-						<!-- category-change -->
-						<div class="dropdown category-dropdown">						
-							<a data-toggle="dropdown" href="#"><span class="change-text">Select Category</span> <i class="fa fa-angle-down"></i></a>
-							<ul class="dropdown-menu category-change">
-								<li><a href="#">Fashion & Beauty</a></li>
-								<li><a href="#">Cars & Vehicles</a></li>
-								<li><a href="#">Electronics & Gedgets</a></li>
-								<li><a href="#">Real Estate</a></li>
-								<li><a href="#">Sports & Games</a></li>
-							</ul>								
-						</div><!-- category-change -->
-					
-						<input type="text" class="form-control" placeholder="Type Your key word">
+					<form action="{{ route('search') }}">
+						<input type="text" name="query" class="form-control" placeholder="Type Your key word">
 						<button type="submit" class="form-control" value="Search">Search</button>
 					</form>
 				</div><!-- banner-form -->
@@ -55,11 +43,11 @@
 					<!-- product-list -->
 					<div class="col-md-8">
 						<!-- categorys -->
-						<div class="section category-ad text-center">
+						<div class="section category-ad text-center" style="width:100%">
 							<ul class="category-list">	
 								<li class="category-item">
 									<a href="{{ route('cars.index') }}">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/1.png') }}" alt="images" class="img-fluid"></div>
+										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/1.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Cars & Vehicles</span>
 										<span class="category-quantity">
 											@if($cars->count()>0)
@@ -73,7 +61,7 @@
 								
 								<li class="category-item">
 									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/2.png') }}" alt="images" class="img-fluid"></div>
+										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/2.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Bikes</span>
 										<span class="category-quantity">
 											
@@ -89,7 +77,7 @@
 								
 								<li class="category-item">
 									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/3.png') }}" alt="images" class="img-fluid"></div>
+										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/3.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Vehicles Parts</span>
 										<span class="category-quantity">
 
@@ -104,33 +92,41 @@
 								
 								<li class="category-item">
 									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/4.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Sports & Games</span>
-										<span class="category-quantity">(972)</span>
+										<div class="category-icon"><img height="40px" width="40px" src="{{ asset('theme/images/icon/4.png') }}" alt="images" class="img-fluid"></div>
+										<span class="category-title">Car Rental</span>
+										<span class="category-quantity">
+											(0)
+										</span>
 									</a>
 								</li><!-- category-item -->
 								
 								
 								<li class="category-item">
 									<a href="{{ route('cars.index') }}">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/12.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Miscellaneous </span>
+										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/5.png') }}" alt="images" class="img-fluid"></div>
+										<span class="category-title">Discussions </span>
 										<span class="category-quantity">(1298)</span>
 									</a>
 								</li><!-- category-item -->
-								
+								<li class="category-item">
+									<a href="{{ route('cars.index') }}">
+										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/6.png') }}" alt="images" class="img-fluid"></div>
+										<span class="category-title">Finace </span>
+										<span class="category-quantity">(1298)</span>
+									</a>
+								</li><!-- category-item -->
 								<li class="category-item">
 									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/7.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Job Openings </span>
-										<span class="category-quantity">(124)</span>
+										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/7.png') }}" alt="images" class="img-fluid"></div>
+										<span class="category-title">Inspection </span>
+										<span class="category-quantity"></span>
 									</a>
 								</li><!-- category-item -->
 								
 								<li class="category-item">
 									<a href="categories.html">
-										<div class="category-icon"><img src="{{ asset('theme/images/icon/8.png') }}" alt="images" class="img-fluid"></div>
-										<span class="category-title">Books & Magazines</span>
+										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/8.png') }}" alt="images" class="img-fluid"></div>
+										<span class="category-title">Cool Rides</span>
 										<span class="category-quantity">(972)</span>
 									</a>
 								</li><!-- category-item -->					
@@ -142,7 +138,7 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="section-title featured-top">
-										<h4>Featured Ads</h4>
+										<h4>Certified Ads</h4>
 									</div>
 								</div>
 							</div>
@@ -151,142 +147,39 @@
 							<div class="featured-slider">
 								<div id="featured-slider" >
 									<!-- featured -->
+									@foreach ($certified as $item)
 									<div class="featured">
+										
+											
+										
 										<div class="featured-image">
-											<a href="details.html"><img src="{{ asset('theme/images/featured/1.jpg') }}" alt="" class="img-fluid"></a>
-											<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
+											<a href="details.html"><img src="{{ asset('storage/'.$item->image) }}" alt="" class="img-fluid"></a>
+											<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Certified"><i class="fa fa-check-square-o"></i></a>
 										</div>
 										
 										<!-- ad-info -->
 										<div class="ad-info">
-											<h3 class="item-price">$800.00</h3>
-											<h4 class="item-title"><a href="#">Apple MacBook Pro with Retina Display</a></h4>
+											<h3 class="item-price">${{ $item->price }}</h3>
+											<h4 class="item-title"><a href="#">{{ $item->car_info }}</a></h4>
 											<div class="item-cat">
-												<span><a href="#">Electronics & Gedgets</a></span> 
+												<span><a href="#">Transmission: {{ $item->transmission }}</a></span> 
 											</div>
 										</div><!-- ad-info -->
 										
 										<!-- ad-meta -->
 										<div class="ad-meta">
 											<div class="meta-content">
-												<span class="dated"><a href="#">7 Jan 10:10 pm </a></span>
+												<span class="dated"><a href="#">{{ $item->created_at->diffForHumans() }} </a></span>
 											</div>									
 											<!-- item-info-right -->
 											<div class="user-option pull-right">
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
+												<a href="#" data-toggle="tooltip" data-placement="top" title="{{ $item->city }}, Pakistan"><i class="fa fa-map-marker"></i> </a>
+												<a href="#" data-toggle="tooltip" data-placement="top" title="GetWheelz Dealer"><i class="fa fa-suitcase"></i> </a>											
 											</div><!-- item-info-right -->
 										</div><!-- ad-meta -->
 									</div><!-- featured -->
+									@endforeach
 									
-									<div class="featured">
-										<div class="featured-image">
-											<a href="details.html"><img src="{{ asset('theme/images/featured/2.jpg"') }}" class="img-fluid"></a>
-										</div>
-										
-										<!-- ad-info -->
-										<div class="ad-info">
-											<h3 class="item-price">$25000.00</h3>
-											<h4 class="item-title"><a href="#">2018 Bugatti Veyron Sport Middlecar</a></h4>
-											<div class="item-cat">
-												<span><a href="#">Cars & Vehicles</a></span> 
-											</div>
-										</div><!-- ad-info -->
-										
-										<!-- ad-meta -->
-										<div class="ad-meta">
-											<div class="meta-content">
-												<span class="dated"><a href="#">7 Jan 10:10 pm </a></span>
-											</div>									
-											<!-- item-info-right -->
-											<div class="user-option pull-right">
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>											
-											</div><!-- item-info-right -->
-										</div><!-- ad-meta -->
-									</div><!-- featured -->
-									
-									<div class="featured">
-										<div class="featured-image">
-											<a href="details.html"><img src="{{ asset('theme/images/featured/3.jpg') }}" alt="" class="img-fluid"></a>
-											<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
-										</div>
-										
-										<!-- ad-info -->
-										<!-- ad-info -->
-										<div class="ad-info">
-											<h3 class="item-price">$250.00 <span class="negotiable">(Negotiable)</span></h3>
-											<h4 class="item-title"><a href="#">Vivster Acoustic Guitar</a></h4>
-											<div class="item-cat">
-												<span><a href="#">Music & Art</a></span> 
-											</div>
-										</div><!-- ad-info -->
-										
-										<!-- ad-meta -->
-										<div class="ad-meta">
-											<div class="meta-content">
-												<span class="dated"><a href="#">7 Jan 10:10 pm </a></span>
-											</div>									
-											<!-- item-info-right -->
-											<div class="user-option pull-right">
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
-											</div><!-- item-info-right -->
-										</div><!-- ad-meta -->
-									</div><!-- featured -->
-									<div class="featured">
-										<div class="featured-image">
-											<a href="details.html"><img src="{{ asset('theme/images/trending/4.jpg') }}" alt="" class="img-fluid"></a>
-										</div>
-										
-										<!-- ad-info -->
-										<div class="ad-info">
-											<h3 class="item-price">$50.00</h3>
-											<h4 class="item-title"><a href="#">Rick Morton- Magicius Chase</a></h4>
-											<div class="item-cat">
-												<span><a href="#">Books & Magazines</a></span> 
-											</div>
-										</div><!-- ad-info -->
-										
-										<!-- ad-meta -->
-										<div class="ad-meta">
-											<div class="meta-content">
-												<span class="dated"><a href="#">7 Jan 10:10 pm </a></span>
-											</div>									
-											<!-- item-info-right -->
-											<div class="user-option pull-right">
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>											
-											</div><!-- item-info-right -->
-										</div><!-- ad-meta -->
-									</div><!-- featured -->
-									
-									<div class="featured">
-										<div class="featured-image">
-											<a href="details.html"><img src="{{ asset('theme/images/trending/3.jpg') }}" alt="" class="img-fluid"></a>
-										</div>
-										
-										<!-- ad-info -->
-										<div class="ad-info">
-											<h3 class="item-price">$380.00</h3>
-											<h4 class="item-title"><a href="#">Samsung Galaxy S6 Edge</a></h4>
-											<div class="item-cat">
-												<span><a href="#">Electronics & Gedgets</a></span> 
-											</div>
-										</div><!-- ad-info -->
-										
-										<!-- ad-meta -->
-										<div class="ad-meta">
-											<div class="meta-content">
-												<span class="dated"><a href="#">7 Jan 10:10 pm </a></span>
-											</div>									
-											<!-- item-info-right -->
-											<div class="user-option pull-right">
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-												<a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>											
-											</div><!-- item-info-right -->
-										</div><!-- ad-meta -->
-									</div><!-- featured -->
 								</div><!-- featured-slider -->
 							</div><!-- #featured-slider -->
 						</div><!-- featureds -->
@@ -536,7 +429,7 @@
 				<!-- download-app -->
 				<div class="col-md-4">
 					<a href="#" class="download-app">
-						<img src="images/icon/16.png" alt="Image" class="img-fluid">
+						<img src="{{ asset('theme/images/icon/16.png') }}" alt="Image" class="img-fluid">
 						<span class="pull-left">
 							<span>available on</span>
 							<strong>Google Play</strong>
@@ -547,7 +440,7 @@
 				<!-- download-app -->
 				<div class="col-md-4">
 					<a href="#" class="download-app">
-						<img src="images/icon/17.png" alt="Image" class="img-fluid">
+						<img src="{{ asset('theme/images/icon/17.png') }}" alt="Image" class="img-fluid">
 						<span class="pull-left">
 							<span>available on</span>
 							<strong>App Store</strong>
@@ -558,7 +451,7 @@
 				<!-- download-app -->
 				<div class="col-md-4">
 					<a href="#" class="download-app">
-						<img src="images/icon/18.png" alt="Image" class="img-fluid">
+						<img src="{{ asset('theme/images/icon/18.png') }}" alt="Image" class="img-fluid">
 						<span class="pull-left">
 							<span>available on</span>
 							<strong>Windows Store</strong>
@@ -571,8 +464,8 @@
 	
 	<!-- footer -->
 	@include('layouts.footer')
+	@include('sweetalert::alert')
 	{{-- end footer --}}
   </body>
 
-<!-- Mirrored from demo.themeregion.com/trade/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Nov 2019 16:53:32 GMT -->
 </html>

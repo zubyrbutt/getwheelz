@@ -1,15 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 use App\Car;
 use App\Http\Controllers\UsersController;
@@ -18,10 +9,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('cars', 'CarController')->middleware('auth');
-Route::resource('bikes', 'BikeController')->middleware('auth');
+Route::resource('cars', 'CarController');
+Route::get('search', 'CarController@search')->name('search');
+Route::resource('bikes', 'BikeController');
 Route::resource('accessories', 'AccessoryController');
 Route::resource('products', 'ShopController');
+Route::resource('rental', 'RentalController');
+Route::resource('inspection', 'InspectionController');
+Route::resource('insurance', 'InsuranceController');
+Route::resource('import', 'ImportController');
+Route::get('finance', 'CarFinanceController@finance')->name('finance');
+Route::get('car-verification', 'CarverificationController@carVerification')->name('verification.car');
+Route::get('license-verification', 'CarVerificationController@license')->name('verification.license');
+
+
+
+
 
 Route::resource('cart', 'CartController');
 Route::get('checkout', 'CheckOutController@checkOut')->name('checkout');
@@ -47,11 +50,8 @@ Route::get('admin/blog', 'AdminsController@blog')->name('admin.blog')->middlewar
 Route::resource('admin/shop', 'ShopController')->middleware(['auth', 'auth.admin']);
 Route::get('admin/orders/{types?}', 'orderController@orders')->name('admin.orders');
 Route::post('toggledeliver/{orderId}', 'orderController@toggleDeliver')->name('toggle.deliver');
-
-
-
-
-Route::get('finance', 'CarFinanceController@finance')->name('finance');
+//Route::get('admin/cars/certified', 'AdminsController@certified')->name('admin.certified');
+Route::resource('admin/certified', 'CertifiedController');
 
 
 Route::get('carprice', function(){
