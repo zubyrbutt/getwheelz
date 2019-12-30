@@ -18,13 +18,21 @@ class RentalController extends Controller
      */
 
     public function __construct(){
-        $this->middleware('auth')->only('store');
+        $this->middleware('auth')->only('store','index');
     }
 
     public function index()
     {
+        if(Auth()->user()->id !=1)
+        {
+            
         $rental = Rental::all();
         return view('rental\index',compact('rentals'));
+        }else{
+            
+        $rental = Rental::all();
+        return view('dashboard.rental.index',compact('rentals'));
+        }
     }
 
     /**

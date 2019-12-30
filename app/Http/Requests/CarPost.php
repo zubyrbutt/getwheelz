@@ -25,7 +25,6 @@ class CarPost extends FormRequest
     {
         return [
             'city' => 'required',
-            
             'car_info'  => 'required',
             'registration_city'  => 'required',
             'mileage'  => 'required',
@@ -35,6 +34,7 @@ class CarPost extends FormRequest
             'assembly' => 'required',
             'image' => 'required',
             'model' => 'required',
+            'condition' => 'required',
             'description' => 'required',
             'price' => 'required',
             

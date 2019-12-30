@@ -10,13 +10,18 @@ use App\Order;
 use App\Reply;
 use App\Import;
 use App\Rental;
+
+use App\Review;
+use App\Accessory;
+use Laravelista\Comments\Commenter;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Commenter;
+   
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone','image','slug'
+        'name', 'avatar', 'email', 'password', 'phone','image','slug'
     ];
 
     /**
@@ -44,7 +49,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    
+    public function rides(){
+        return $this->hasMany(Ride::class);
+    }
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
     public function import()
     {
         return $this->hasMany(Import::class);

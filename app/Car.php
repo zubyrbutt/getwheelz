@@ -12,7 +12,7 @@ class Car extends Model implements Searchable
    
     
     protected $fillable = [
-        'city', 'user_id','image','car_info', 'registration_city', 'mileage', 'color', 'engine', 'transmission', 'assembly', 'model', 'description', 'price'
+        'city', 'user_id','image','car_info', 'registration_city', 'mileage', 'color', 'engine', 'transmission', 'assembly', 'model','condition', 'description', 'price'
     ];
 
 

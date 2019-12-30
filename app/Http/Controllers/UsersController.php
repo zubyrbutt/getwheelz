@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Storage;
 class UsersController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth')->only('index','create','store','update');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +39,12 @@ class UsersController extends Controller
 
     public function index()
     {
-        $role = Role::all();
-        $user = User::all();
-        return view('users.me')->with('users', $user)->with('roles', $role);
+        
+           $role = Role::all();
+            $user = User::all();
+            return view('users.me')->with('users', $user)->with('roles', $role);
+        
+        
     }
 
     /**

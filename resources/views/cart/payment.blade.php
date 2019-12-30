@@ -13,7 +13,7 @@
         <div class="col-md-4">
           <div class="contact-info">
 
-            <h2>Corporate Info</h2>
+            <h2>your Info</h2>
             <address>
               <p><strong>adress: </strong>1234 Street Name, City Name, Country</p>
               <p><strong>Phone:</strong> <a href="#">(123) 456-7890</a></p>

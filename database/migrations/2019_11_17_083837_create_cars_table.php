@@ -18,7 +18,6 @@ class CreateCarsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('city');
             $table->string('car_info');
-            
             $table->string('registration_city');
             $table->integer('mileage');
             $table->string('color');
@@ -27,9 +26,9 @@ class CreateCarsTable extends Migration
             $table->string('transmission');
             $table->string('assembly');
             $table->integer('model');
+            $table->string('condition');
             $table->text('description');
             $table->integer('price');
-            
             $table->integer('ad_id')->nullable();
             
             $table->timestamps();

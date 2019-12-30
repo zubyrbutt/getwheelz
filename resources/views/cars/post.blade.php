@@ -149,7 +149,15 @@
                                             <input type="text" name="model" class="form-control" id="model" placeholder="ex, Sony Xperia dual sim 100% brand new ">
                                         </div>
                                     </div>
-
+                                    <div class="row form-group select-condition">
+                                        <label class="col-sm-3">Condition<span class="required">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="radio" name="condition" value="New" id="new">
+                                            <label for="new">New</label>
+                                            <input type="radio" name="condition" value="Used" id="used">
+                                            <label for="used">Used</label>
+                                        </div>
+                                    </div>
                                     <div class="row form-group item-description">
                                         <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
                                         <div class="col-sm-9">

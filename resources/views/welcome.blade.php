@@ -1,7 +1,8 @@
 
 	<!-- header -->
 	@include('layouts.nav')
-
+	@section('title', 'Page Title')
+	
 	<!-- main -->
 	<section id="main" class="clearfix home-default">
 		<div class="container">
@@ -17,6 +18,7 @@
 			@endif
 				<div class="banner-form">
 					<form action="{{ route('search') }}">
+						
 						<input type="text" name="query" class="form-control" placeholder="Type Your key word">
 						<button type="submit" class="form-control" value="Search">Search</button>
 					</form>
@@ -60,7 +62,7 @@
 								</li><!-- category-item -->
 								
 								<li class="category-item">
-									<a href="categories.html">
+									<a href="{{ route('bikes.index') }}">
 										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/2.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Bikes</span>
 										<span class="category-quantity">
@@ -76,7 +78,7 @@
 								</li><!-- category-item -->
 								
 								<li class="category-item">
-									<a href="categories.html">
+									<a href="{{ route('accessories.index') }}">
 										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/3.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Vehicles Parts</span>
 										<span class="category-quantity">
@@ -91,7 +93,7 @@
 								</li><!-- category-item -->
 								
 								<li class="category-item">
-									<a href="categories.html">
+									<a href="{{ route('rental.index') }}">
 										<div class="category-icon"><img height="40px" width="40px" src="{{ asset('theme/images/icon/4.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Car Rental</span>
 										<span class="category-quantity">
@@ -102,21 +104,21 @@
 								
 								
 								<li class="category-item">
-									<a href="{{ route('cars.index') }}">
+									<a href="{{ route('discussions.index') }}">
 										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/5.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Discussions </span>
-										<span class="category-quantity">(1298)</span>
+										<span class="category-quantity"></span>
 									</a>
 								</li><!-- category-item -->
 								<li class="category-item">
-									<a href="{{ route('cars.index') }}">
+									<a href="{{ route('finance') }}">
 										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/6.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Finace </span>
-										<span class="category-quantity">(1298)</span>
+										<span class="category-quantity"></span>
 									</a>
 								</li><!-- category-item -->
 								<li class="category-item">
-									<a href="categories.html">
+									<a href="{{ route('inspection.index') }}">
 										<div class="category-icon"><img width="40px" height="40px" src="{{ asset('theme/images/icon/7.png') }}" alt="images" class="img-fluid"></div>
 										<span class="category-title">Inspection </span>
 										<span class="category-quantity"></span>
@@ -191,12 +193,12 @@
 						<!-- trending-ads -->
 						<div class="section trending-ads">
 								<div class="section-title tab-manu">
-									<h4>Trending Ads</h4>
+									<h4>Cars Trending Ads</h4>
 									 <!-- Nav tabs -->      
 									<ul class="nav nav-tabs" role="tablist">
 										<li role="presentation"><a class="active" href="#recent-ads"  data-toggle="tab">Recent Ads</a></li>
-										<li role="presentation"><a href="#popular" data-toggle="tab">Popular Ads</a></li>
-										<li role="presentation"><a href="#hot-ads"  data-toggle="tab">Hot Ads</a></li>
+										<li role="presentation"><a href="#popular" data-toggle="tab">Bikes Popular Ads</a></li>
+										<li role="presentation"><a href="#hot-ads"  data-toggle="tab">Accessories</a></li>
 									</ul>
 								</div>
 	
@@ -238,12 +240,11 @@
 												<div class="ad-meta">
 													<div class="meta-content">
 														<span class="dated"><a href="#">{{ $car->created_at->diffForHumans() }} </a></span>
-														<a href="#" class="tag"><i class="fa fa-info"></i> {{ $car->engine }}</a>
+														<a href="{{ route('usedcar') }}" class="tag"><i class="fa fa-info"> Condition: </i> {{ $car->condition }}</a>
 													</div>									
 													<!-- item-info-right -->
 													<div class="user-option pull-right">
 														<a href="#" data-toggle="tooltip" data-placement="top" title="{{ $car->city }}, Pakistan"><i class="fa fa-map-marker"></i> </a>
-														<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
 													</div><!-- item-info-right -->
 												</div><!-- ad-meta -->
 											</div>
@@ -263,7 +264,6 @@
 											<div class="item-image-box col-lg-4">
 												<div class="item-image">
 													<a href="{{ route('bikes.show', $bike->id) }}"><img src="{{ asset('storage/'.$bike->image) }}" alt="Image" class="img-fluid"></a>
-													<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
 												</div><!-- item-image -->
 											</div>
 											
@@ -315,8 +315,7 @@
 											<!-- item-image -->
 											<div class="item-image-box col-lg-4">
 												<div class="item-image">
-													<a href="details.html"><img src="images/trending/1.jpg" alt="Image" class="img-fluid"></a>
-													<a href="#" class="verified" data-toggle="tooltip" data-placement="left" title="Verified"><i class="fa fa-check-square-o"></i></a>
+													<a href="{{ route('accessories.show',$accessory->id) }}"><img src="{{ asset('storage/'.$accessory->image) }}" alt="Image" class="img-fluid"></a>
 												</div><!-- item-image -->
 											</div>
 											
@@ -328,28 +327,24 @@
 												<div class="ad-info">
 													<h3 class="item-price">${{ $accessory->price }}
 														@if($accessory->negotiable == 0 )
-														<span>(Negotiable)</span>
+														<span>Negotiable</span>
 														@else
-														<span>(Final Price)</span>
+														<span>Final Price</span>
 													@endif
 													</h3>
-													<h4 class="item-title"><a href="#">Apple TV - Everything you need to know!</a></h4>
-													<div class="item-cat">
-														<span><a href="#">Electronics & Gedgets</a></span> /
-														<span><a href="#">Tv & Video</a></span>
-													</div>	
+													<h4 class="item-title"><a href="{{ route('accessories.show', $accessory->id) }}">{{ $accessory->title }}</a></h4>
+														
 												</div><!-- ad-info -->
 												
 												<!-- ad-meta -->
 												<div class="ad-meta">
 													<div class="meta-content">
-														<span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
-														<a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+														<span class="dated"><a href="#">{{ $accessory->created_at->diffForHumans() }} </a></span>
+														<a href="#" class="tag"><i class="fa fa-tags"></i>{{ $accessory->condition }}</a>
 													</div>									
 													<!-- item-info-right -->
 													<div class="user-option pull-right">
-														<a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-														<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Dealer"><i class="fa fa-suitcase"></i> </a>											
+														<a href="#" data-toggle="tooltip" data-placement="top" title="{{ $accessory->city }}, Pakistan"><i class="fa fa-map-marker"></i> </a>
 													</div><!-- item-info-right -->
 												</div>
 												<!-- ad-meta -->

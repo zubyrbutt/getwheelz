@@ -33,7 +33,7 @@ class BikeController extends Controller
 
     public function index()
     {
-        $bikes = Bike::all()->first();
+        $bikes = Bike::all();
         return view('bikes.index')->with('bikes',$bikes);
 
 
@@ -57,6 +57,8 @@ class BikeController extends Controller
      */
     public function store(PostBike $request)
     {
+        $image = $request->image->store('bikes');
+
         $bike = Bike::create([
 
             'city' => $request->city,
@@ -66,9 +68,12 @@ class BikeController extends Controller
             'mileage' => $request->mileage,
             'engine' => $request->engine,
             'model' => $request->model,
+            'condition' => $request->condition,
             'description' => $request->description,
             'price' => $request->price,
-            'negotiable' => $request->negotiable
+            'negotiable' => $request->negotiable,
+            'image' => $image
+
 
         ]);
 
@@ -84,9 +89,11 @@ class BikeController extends Controller
      * @param  \App\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function show(Bike $bike)
+    public function show($id)
     {
-        return view('bikes.show');
+        $bike  = Bike::findOrFail($id);
+
+        return view('bikes.show', compact('bike'));
     }
 
     /**

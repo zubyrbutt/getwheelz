@@ -2,15 +2,19 @@
 
 namespace App\Providers;
 
-use App\Accessory;
-use App\Bike;
 use App\Car;
-use App\Certified;
-use App\Channel;
-use App\Insurance;
+use App\Bike;
 use App\Shop;
-use Illuminate\Support\Facades\View;
+use App\User;
+use App\Rental;
+use App\Review;
+use App\Channel;
+use App\Message;
 
+use App\Accessory;
+use App\Certified;
+use App\Insurance;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191); 
+        View::share('Users', User::all());
         View::share('channels', Channel::all());
         View::share('bikes', Bike::all());
         View::share('cars', Car::all());
@@ -41,6 +46,10 @@ class AppServiceProvider extends ServiceProvider
         View::share('products', Shop::all());
         View::share('certified', Certified::all());
         View::share('insurance', Insurance::all());
+        View::share('reviews', Review::all());
+        View::share('rentals', Rental::all());
+        View::share('messages', Message::all());
+
 
 
 

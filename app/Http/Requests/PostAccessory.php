@@ -32,6 +32,7 @@ class PostAccessory extends FormRequest
             'negotiable' => 'required',
             'condition' => 'required',
             'category' => 'required',
+            'image' => 'required'
 
         ];
     }

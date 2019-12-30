@@ -21,6 +21,53 @@ function calculate(){
 
 
 }
+function price(){
+
+
+  var make = document.getElementById('make').value;
+  var version = document.getElementById('version').value;
+  var mileage = document.getElementById('mileage').value;
+  var city = document.getElementById('city').value;
+
+  
+ 
+  if(city == "Islamabad"){
+    var city = 50000;
+  }else{
+    var city = 5000;
+
+  }
+  if(version == "vx"){
+    var version = 100000;
+  }else{
+    var version = 80000;
+
+  }
+  if(mileage > 1000000)
+  {
+    mileage = 12000;
+  }
+  else{
+    mileage = 1000;
+  }
+  if(make == "2019"){
+    var make = 1300000;
+
+  }else{
+    var make = 1100000;
+
+  }
+  var totalAmount =  make+mileage+version+city;
+
+  payment = totalAmount;
+
+	document.getElementById('payment').innerHTML = "PKR."+totalAmount;
+
+
+
+
+
+}
   function populate(s1,s2){
     var s1 = document.getElementById(s1);
     var s2 = document.getElementById(s2);

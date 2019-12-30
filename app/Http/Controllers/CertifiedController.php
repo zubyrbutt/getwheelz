@@ -37,4 +37,10 @@ class CertifiedController extends Controller
         $certified->save();
         return redirect('/');
    }
+   public function show($id)
+   {
+       $car  = Certified::findOrFail($id);
+       
+       return view('cars.certified', compact('car'));
+   }
 }

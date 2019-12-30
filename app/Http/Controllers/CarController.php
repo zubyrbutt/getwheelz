@@ -24,7 +24,6 @@ class CarController extends Controller
         $searchResults = (new Search())
             ->registerModel(Car::class, 'car_info')
             ->registerModel(Bike::class, 'bike_info')
-            
             ->perform($request->input('query'));
 
         return view('search.search', compact('searchResults'));
@@ -33,13 +32,14 @@ class CarController extends Controller
 
 
     public function __construct(){
-        $this->middleware('auth')->only('store');
+        $this->middleware('auth')->only('store', 'create');
     }
 
     public function welcome()
     {
-        $car = Car::all();
-        return view('welcome')->with('cars', $car);
+        $cars = Car::orderBy('id','desc')->get();
+        
+        return view('welcome')->with('cars', $cars);
     }
 
     public function index()
@@ -82,6 +82,7 @@ class CarController extends Controller
             'transmission' => $request->transmission,
             'assembly' => $request->assembly,
             'model' => $request->model,
+            'condition' => $request->condition,
             'description' => $request->description,
             'price' => $request->price,
        
@@ -140,5 +141,16 @@ class CarController extends Controller
     public function destroy(Car $car)
     {
         //
+    }
+
+    public function usedCar()
+    {
+        $usedCars = Car::where('condition', 'Used')->get();
+        return view('cars.used',compact('usedCars'));
+    }
+    public function newCar()
+    {
+        $newCars = Car::where('condition', 'New')->get();
+        return view('cars.newCars',compact('newCars'));
     }
 }

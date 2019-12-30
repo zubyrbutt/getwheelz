@@ -23,10 +23,10 @@ class CreateBikesTable extends Migration
             $table->string('image')->nullable();
             $table->string('engine');
             $table->integer('model');
+            $table->string('condition');
             $table->text('description');
             $table->integer('price');
             $table->tinyInteger('negotiable');
-            
             $table->tinyInteger('features')->default(0);
             $table->tinyInteger('certified')->default(0);
             $table->timestamps();

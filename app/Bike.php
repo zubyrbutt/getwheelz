@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bike extends Model  implements Searchable
 {
     protected $fillable = [
-        'city', 'user_id', 'bike_info', 'registration_city', 'mileage',  'engine', 'model', 'description', 'price', 'negotiable'
+        'city', 'user_id', 'bike_info', 'registration_city', 'mileage',  'engine', 'model','condition','description', 'price', 'negotiable','image'
     ];
 
 
@@ -20,7 +20,7 @@ class Bike extends Model  implements Searchable
        $url = route('search');
     
         return new \Spatie\Searchable\SearchResult(
-            $this,
+           $this,
            $this->bike_info,
            $this->price,
            $this->image,

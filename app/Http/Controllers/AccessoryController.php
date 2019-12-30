@@ -15,12 +15,14 @@ class AccessoryController extends Controller
      */
 
     public function __construct(){
-        $this->middleware('auth')->only('store');
+        $this->middleware('auth')->only('store','create');
     }
 
     public function index()
     {
-        //
+        $accessories = Accessory::all();
+        return view('accessories\index',compact('accessories'));
+        
     }
 
     /**
@@ -41,20 +43,24 @@ class AccessoryController extends Controller
      */
     public function store(PostAccessory $request)
     {
+        $image = $request->image->store('accessories');
+
         $accessory = Accessory::create([
             'title' => $request->title,
             'city' => $request->city,
             'category' => $request->category,
-            
             'description' => $request->description,
             'price' => $request->price,
             'condition' => $request->condition,
-            'negotiable' => $request->negotiable
+            'negotiable' => $request->negotiable,
+            'image' => $image
 
         ]);
 
         $accessory->save();
-        return redirect('/');
+        \toast('Your ad post successfully ..', 'success');
+
+        return redirect()->back();
     }
 
     /**
@@ -63,9 +69,13 @@ class AccessoryController extends Controller
      * @param  \App\Accessory  $accessory
      * @return \Illuminate\Http\Response
      */
-    public function show(Accessory $accessory)
+    public function show($id)
     {
-        //
+        
+        $accessory  = Accessory::findOrFail($id);
+        
+        return view('accessories.show', compact('accessory'));
+        
     }
 
     /**

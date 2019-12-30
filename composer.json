@@ -9,14 +9,20 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "artisanry/likeable": "^3.0",
+        "cybercog/laravel-likeable": "^3.1",
         "darryldecode/cart": "^4.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "laravelista/comments": "^3.1",
+        "musonza/chat": "^3.7",
+        "pusher/pusher-php-server": "^4.1",
         "realrashid/sweet-alert": "^2.0",
         "spatie/laravel-searchable": "^1.2",
         "stripe/stripe-php": "^7.14",
-        "thomaswelton/laravel-gravatar": "~1.0"
+        "thomaswelton/laravel-gravatar": "~1.0",
+        "willvincent/laravel-rateable": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -14,45 +14,11 @@
 						<h1> Bmw X6 2015</h1>
 						<h2>Mate Black <span>Price: $25,000</span></h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#" class="btn btn-primary">Learn More</a>
+						<a href="{{ route('cars.create') }}" class="btn btn-primary">Post your ads</a>
 					</div>
 				</div>
 				<div class="col-md-4 offset-md-2">
-					<div class="contact-form">
-						<h1>Find Your Car</h1>
-						<div class="contact-info">
-							<form action="#">
-								<h3>Vehicle Type:</h3>
-								<div class="dropdown category-dropdown">						
-									<a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">All</span> <i class="fa fa-angle-down"></i></a>
-									<ul class="dropdown-menu category-change">
-										<li><a href="#">Option 1</a></li>
-										<li><a href="#">Option 2</a></li>
-										<li><a href="#">Option 3</a></li>
-									</ul>								
-								</div>
-								<h3>Select Makes</h3>
-								<div class="dropdown category-dropdown">						
-									<a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">All</span> <i class="fa fa-angle-down"></i></a>
-									<ul class="dropdown-menu category-change">
-										<li><a href="#">Option 1</a></li>
-										<li><a href="#">Option 2</a></li>
-										<li><a href="#">Option 3</a></li>
-									</ul>								
-								</div>
-								<h3>Model:</h3>
-								<div class="dropdown category-dropdown">						
-									<a data-toggle="dropdown" href="#" aria-expanded="false"><span class="change-text">All</span> <i class="fa fa-angle-down"></i></a>
-									<ul class="dropdown-menu category-change">
-										<li><a href="#">Option 1</a></li>
-										<li><a href="#">Option 2</a></li>
-										<li><a href="#">Option 3</a></li>
-									</ul>								
-								</div>
-								<button type="submit" class="form-control" value="Search">Search</button>
-							</form>
-						</div>
-					</div>
+					
 				</div>
 			</div><!-- row -->	
 		</div><!-- container -->	
@@ -60,64 +26,10 @@
 
 	<div class="page">
 		<div class="container">
-			<div class="category-section">
-				<div class="section-title">
-					<h4>Browse Cars By Makes</h4>
-					<h5>We currently have 94 cars available</h5>
-				</div>
-				<div class="cars-category">
-					<div class="category-menu">
-						<ul>
-							<li><a href="categories-main.html">Audi (10)</a></li>
-							<li><a href="categories-main.html">BMW (4)</a></li>
-							<li><a href="categories-main.html">Chevrolet (5)</a></li>
-							<li><a href="categories-main.html">Daihatsu (4)</a></li>
-						</ul>
-					</div>
-					<div class="category-menu">
-						<ul>
-							<li><a href="categories-main.html">Datsun (3)</a></li>
-							<li><a href="categories-main.html">FAW (5)</a></li>
-							<li><a href="categories-main.html">Fiat (5)</a></li>
-							<li><a href="categories-main.html">Ford (5)</a></li>
-						</ul>
-					</div>
-					<div class="category-menu">
-						<ul>
-							<li><a href="categories-main.html">Honda (5)</a></li>
-							<li><a href="categories-main.html">Hyundai (5)</a></li>
-							<li><a href="categories-main.html">Mahindra (6)</a></li>
-							<li><a href="categories-main.html">Mercedes Benz (5)</a></li>
-						</ul>
-					</div>
-					<div class="category-menu">
-						<ul>
-							<li><a href="categories-main.html">Tesla (5)</a></li>
-							<li><a href="categories-main.html">Porsche (6)</a></li>
-							<li><a href="categories-main.html">Range Rover (8)</a></li>
-							<li><a href="categories-main.html">Renault (5)</a></li>
-						</ul>
-					</div>
-					<div class="category-menu">
-						<ul>
-							<li><a href="categories-main.html">Suzuki (3)</a></li>
-							<li><a href="categories-main.html">Toyota (5)</a></li>
-							<li><a href="categories-main.html">Ferrari (10)</a></li>
-							<li><a href="categories-main.html">Jaguar (12)</a></li>
-						</ul>
-					</div>
-					<div class="category-menu">
-						<ul>
-							<li><a href="categories-main.html">Lamborghini (03)</a></li>
-							<li><a href="categories-main.html">Nissan (07)</a></li>
-						</ul>
-					</div>
-				</div><!-- cars category -->
-			</div><!-- category section -->
-
-			<div class="section featureds">
+			
+			<div class="section featureds mt-3">
 				<div class="section-title featured-top">
-					<h4>Featured Car Deals</h4>
+					<h4>Products Deals</h4>
 				</div>			
 				
 				<div class="featured-slider">

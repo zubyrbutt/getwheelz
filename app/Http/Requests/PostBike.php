@@ -25,13 +25,12 @@ class PostBike extends FormRequest
     {
         return [
             'city' => 'required',
-            
             'bike_info'  => 'required',
             'registration_city'  => 'required',
             'mileage'  => 'required',
-            
             'engine'  => 'required',
-            
+            'image' =>'required',
+            'condition' =>'required',
             'description' => 'required',
             'price' => 'required',
         ];
